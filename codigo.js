@@ -28,8 +28,17 @@ $('#searchForm')
 	$.ajax({
 		url:'http://api.tvmaze.com/shows',
 		success: function (shows,textStatus,xhr){
-			var article = template
-			.replace(':name:', show.name);
+			shows.forEach(function(show){
+				var article = template
+					.replace(':name:', show.name)
+					.replace(':img:', show.image.medium)
+					.replace(':summary:', show.summary)
+					.replace(':img alt:', show.name + 'Logo')
+				
+				$('#app-body')
+					.find('.row')
+					.append($(article))
+			})
 		}
 	})
 })
