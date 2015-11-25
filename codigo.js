@@ -57,11 +57,10 @@ $('#searchForm')
 			'</div>' +
 		'</article>';
 	
-$.ajax({
-		url:'http://api.tvmaze.com/shows',
-		success: function (shows,textStatus,xhr){
-			renderShows(shows);
-		}
+$
+	.ajax('http://api.tvmaze.com/shows')
+	.then( function (shows){
+		renderShows(shows);
 	})
 })
 
